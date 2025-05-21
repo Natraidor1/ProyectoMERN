@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import Navegation from './components/Navegation';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      
-
+      <Router>
+        <Navegation/>
+      </Router>
     </>
-  )
+  );
 }
 
 export default App
