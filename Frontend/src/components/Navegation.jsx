@@ -15,10 +15,6 @@ function Navegation(){
           <Routes>
             <Route>
               <Route path="/Products" element={<Products />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/brands" element={<Brands />} />
-              <Route path="/models" element={<Models />} />
-              <Route path="/categories" element={<Categories />} />
             </Route>
           </Routes>
         </>

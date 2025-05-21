@@ -1,17 +1,20 @@
-import { set } from "mongoose";
+
 import React, { useState, useEffect } from "react";
+import ListProducts from "../components/products/ListProducts";
+import RegisterProduct from "../components/products/RegisterProducts";
+import toast, {Toaster} from 'react-hot-toast';
 
 
 const products =()=>{
     const [activeTab, setActiveTab] = useState("list");
     const API = "http://localhost:4000/api/products";
     const [id, setId] = useState("");
-    const [nameProduct, setNameProduct] = useState("")
-    const [description, setDescription] = useState("")
-    const [price, setPrice] = useState("")
-    const [stock, setStock] = useState("")
-    const [products, setProducts] = useState([])
+    const [nameProduct, setNameProduct] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [stock, setStock] = useState("");
     const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
 
 
     const fecthProducts = async ()=>{
@@ -130,4 +133,67 @@ const products =()=>{
         }
     };
 
+    return(
+        <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">productos</h1>
+        <div>
+          <div className="flex border-b border-gray-200 mb-4">
+            <button
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none focus:border-b-2 focus:border-blue-500"
+              onClick={() => setActiveTab("list")}
+            >
+              Lista de categorías
+            </button>
+            <button
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none focus:border-b-2 focus:border-blue-500"
+              onClick={() => {
+                setActiveTab("form");
+              }}
+            >
+              Gestionar Categorías
+            </button>
+          </div>
+          <div>
+            {activeTab === "list" && (
+              <div>
+                <ListProducts
+                // mi error era que en products lo tenia como products = {products} y es product = {products}
+                  product={products}
+                  loading={loading}
+                  deleteProducts={deleteProducts}
+                  updateProducts={updateProducts}
+                />
+              </div>
+            )}
+            {activeTab === "form" && (
+              <div>
+                <RegisterProduct
+                  setNameProduct={setNameProduct}
+                  nameProduct={nameProduct}
+                  setDescription={setDescription}
+                  description={description}
+                  setPrice={setPrice}
+                  price={price}
+                  setStock={setStock}
+                  stock={stock}
+                  saveProduct={saveProduct}
+                  id={id}
+                  HandleEdit={HandleEdit}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+            <Toaster
+          toastOptions={{
+            duration: 1000,
+          }}
+        />
+    </div>
+    );
+
 }
+
+export default products;

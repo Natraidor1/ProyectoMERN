@@ -1,5 +1,6 @@
 import React from "react";
-import {useNavigate, NavLink} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom"
+/*import {useNavigate, NavLink} from "react-router-dom";*/
 
 const NavBar =()=>{
     return(
@@ -15,68 +16,23 @@ const NavBar =()=>{
             : "text-gray-300 hover:text-gray-400"
         }
         >
-        ByteShop
+        TODO
         </NavLink>
     </div>
     <ul className="flex space-x-6">
         <li>
         <NavLink
-            to="/models"
+            to="/products"
             className={({ isActive }) =>
             isActive
                 ? "text-blue-500 font-bold"
                 : "text-gray-300 hover:text-gray-400"
             }
         >
-            Modelos
-        </NavLink>
-        </li>
-        <li>
-        <NavLink
-            to="/brands"
-            className={({ isActive }) =>
-            isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-300 hover:text-gray-400"
-            }
-        >
-            Marcas
-        </NavLink>
-        </li>
-        <li>
-        <NavLink
-            to="/employees"
-            className={({ isActive }) =>
-            isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-300 hover:text-gray-400"
-            }
-        >
-            Empleados
-        </NavLink>
-        </li>
-
-        <li>
-        <NavLink
-            to="/categories"
-            className={({ isActive }) =>
-            isActive
-                ? "text-blue-500 font-bold"
-                : "text-gray-300 hover:text-gray-400"
-            }
-        >
-            Categorias
+            Productos
         </NavLink>
         </li>
     </ul>
-    <div>
-        <button
-        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        onClick={handleLogout}
-        >
-        Cerrar Sesión
-        </button>
-    </div>
     </div>
 </nav>
         </>
