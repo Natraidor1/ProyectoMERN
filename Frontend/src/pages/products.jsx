@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import ListProducts from "../components/products/ListProducts";
 import RegisterProduct from "../components/products/RegisterProducts";
 import toast, {Toaster} from 'react-hot-toast';
 
 
-const products =()=>{
+const Products =()=>{
     const [activeTab, setActiveTab] = useState("list");
     const API = "http://localhost:4000/api/products";
     const [id, setId] = useState("");
@@ -24,10 +23,10 @@ const products =()=>{
 
             throw new Error("Hubo  un error al obtener los productos")
         }
-
         const data = await response.json();
         setProducts(data)
         setLoading(false)
+
     };
 
     useEffect(()=>{
@@ -40,8 +39,7 @@ const products =()=>{
             name: nameProduct,
             description: description,
             price: price,
-            stock: stock,
-            products:products,
+            stock: stock, 
         };
 
         const response = await fetch(API,{
@@ -90,7 +88,7 @@ const products =()=>{
         setNameProduct(dataProduct.name);
         setDescription(dataProduct.description);
         setPrice(dataProduct.price);
-        setStock(dataProduct.products);
+        setStock(dataProduct.stock);
         setActiveTab("form")
 
     }
@@ -100,6 +98,16 @@ const products =()=>{
         e.preventDefault();
 
         try {
+
+            if(price === "" || stock === ""|| nameProduct === "" || description === ""){
+                toast.error("los campos no pueden estar vacios")
+                return;
+            }
+            if (isNaN(price) || isNaN(stock)) {
+                toast.error("El precio y el stock deben ser números");
+                return;
+            }
+
             const editProduct ={
                 name: nameProduct,
                 description: description,
@@ -143,7 +151,7 @@ const products =()=>{
               className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none focus:border-b-2 focus:border-blue-500"
               onClick={() => setActiveTab("list")}
             >
-              Lista de categorías
+              Lista de Productos
             </button>
             <button
               className="px-4 py-2 text-gray-600 hover:text-gray-800 focus:outline-none focus:border-b-2 focus:border-blue-500"
@@ -151,7 +159,7 @@ const products =()=>{
                 setActiveTab("form");
               }}
             >
-              Gestionar Categorías
+              Gestionar Productos
             </button>
           </div>
           <div>
@@ -159,7 +167,7 @@ const products =()=>{
               <div>
                 <ListProducts
                 // mi error era que en products lo tenia como products = {products} y es product = {products}
-                  product={products}
+                  products={products} //otro error solucinadoña promp correcta que se manda en listProducts es "products"={products} no "product"={products}
                   loading={loading}
                   deleteProducts={deleteProducts}
                   updateProducts={updateProducts}
@@ -194,6 +202,6 @@ const products =()=>{
     </div>
     );
 
-}
+};
 
-export default products;
+export default Products;

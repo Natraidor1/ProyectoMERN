@@ -1,6 +1,8 @@
 import React from "react";
 
-const RegisterProduct=({nameProduct, setNameProduct,description, setDescription, price, setPrice, stock, setStock, saveProduct, id, HandleEdit})=>{
+const RegisterProduct=({nameProduct, setNameProduct, description, setDescription, price, setPrice, stock, setStock, saveProduct, id, HandleEdit})=>{
+
+  return(
     <div className="">
       <form className="w-full max-w-lg mx-auto mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
@@ -13,7 +15,7 @@ const RegisterProduct=({nameProduct, setNameProduct,description, setDescription,
             value={nameProduct}
             onChange={(e) => setNameProduct(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="Categoría"
+            placeholder="Producto"
           />
         </div>
         <div className="mb-4">
@@ -31,28 +33,28 @@ const RegisterProduct=({nameProduct, setNameProduct,description, setDescription,
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="description">
-            Descripción
+            Price
           </label>
           <input
             type="text"
-            name="description"
+            name="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="Descripción"
+            placeholder="price"
           />
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="description">
-            Descripción
+            stock
           </label>
           <input
             type="text"
-            name="description"
+            name="stock"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="Descripción"
+            placeholder="stock"
           />
         </div>        
 
@@ -75,6 +77,7 @@ const RegisterProduct=({nameProduct, setNameProduct,description, setDescription,
         )}
       </form>
     </div>
-}
+  );
+};
 
 export default RegisterProduct;
