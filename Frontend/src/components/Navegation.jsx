@@ -6,6 +6,7 @@ import {
     Routes,
 } from "react-router-dom";
 import Products from "../pages/products";
+import Reviews from "../pages/reviews";
 
 function Navegation(){
 
@@ -14,7 +15,8 @@ function Navegation(){
           <NavBar />
           <Routes>
             <Route>
-              <Route path="/Products" element={<Products />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/reviews" element={<Reviews />}/>
             </Route>
           </Routes>
         </>

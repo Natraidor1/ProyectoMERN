@@ -32,6 +32,18 @@ const NavBar =()=>{
             Productos
         </NavLink>
         </li>
+                <li>
+        <NavLink
+            to="/reviews"
+            className={({ isActive }) =>
+            isActive
+                ? "text-blue-500 font-bold"
+                : "text-gray-300 hover:text-gray-400"
+            }
+        >
+            Reviews
+        </NavLink>
+        </li>
     </ul>
     </div>
 </nav>
