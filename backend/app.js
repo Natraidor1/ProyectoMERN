@@ -20,7 +20,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: "*",
+        origin: "https://proyectomern-1-jobn.onrender.com",
         credentials: true,
     })
 );

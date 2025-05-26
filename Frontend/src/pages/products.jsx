@@ -6,7 +6,7 @@ import toast, {Toaster} from 'react-hot-toast';
 
 const Products =()=>{
     const [activeTab, setActiveTab] = useState("list");
-    const API = "http://localhost:4000/api/products";
+    const API = "https://proyectomern-1-jobn.onrender.com/api/products";
     const [id, setId] = useState("");
     const [nameProduct, setNameProduct] = useState("");
     const [description, setDescription] = useState("");
