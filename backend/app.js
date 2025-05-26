@@ -21,6 +21,8 @@ const app = express();
 app.use(
     cors({
         origin: "https://proyectomern-1-jobn.onrender.com",
+          methods: ["GET", "POST", "PUT", "DELETE"], 
+         allowedHeaders: ["Content-Type", "Authorization"], 
         credentials: true,
     })
 );
