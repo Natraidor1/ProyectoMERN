@@ -15,7 +15,7 @@ const RegisterProduct=({nameProduct, setNameProduct, description, setDescription
             value={nameProduct}
             onChange={(e) => setNameProduct(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="Producto"
+            placeholder="Producto" required
           />
         </div>
         <div className="mb-4">
@@ -28,7 +28,7 @@ const RegisterProduct=({nameProduct, setNameProduct, description, setDescription
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="Descripción"
+            placeholder="Descripción" required
           />
         </div>
         <div className="mb-4">
@@ -41,7 +41,7 @@ const RegisterProduct=({nameProduct, setNameProduct, description, setDescription
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="price"
+            placeholder="price" required
           />
         </div>
         <div className="mb-4">
@@ -54,7 +54,7 @@ const RegisterProduct=({nameProduct, setNameProduct, description, setDescription
             value={stock}
             onChange={(e) => setStock(e.target.value)}
             className="w-full px-3 py-2 border rounded"
-            placeholder="stock"
+            placeholder="stock" required
           />
         </div>        
 
